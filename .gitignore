@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+nyc_taxi_data.npy
+=======
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -216,3 +219,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+>>>>>>> 30e7201f00255613728d9edec022b11dc807fa68
+
+#local data
+nyc_taxi_data.npy
