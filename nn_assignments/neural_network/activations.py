@@ -24,3 +24,15 @@ class RelU(Layer):
     def backward(self, upstream_gradient):
         relu_gradient = self.X_cache > 0
         return upstream_gradient * relu_gradient
+
+class Tanh(Layer):
+    def __init__(self):
+        self.output_cache = None
+
+    def forward(self, X):
+        self.output_cache = np.tanh(X)
+        return self.output_cache
+
+    def backward(self, upstream_gradient):
+        tanh_gradient = 1 - (self.output_cache ** 2)
+        return upstream_gradient * tanh_gradient
