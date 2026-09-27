@@ -20,7 +20,7 @@ class Sequential(Layer):
     def backward(self, loss_gradient):
         gradient = loss_gradient
         for layer in reversed(self.layers):
-            grad = layer.backward(grad)
+            gradient = layer.backward(gradient)
 
     def save(self, filepath):
         model_parameters = []
@@ -37,7 +37,7 @@ class Sequential(Layer):
         with open(filepath, 'rb') as f:
             model_parameters = pickle.load(f)
 
-        for layer, paramater in zip(self.layers, model_parameters):
+        for layer, parameter in zip(self.layers, model_parameters):
             if parameter is not None and isinstance(layer, LinearLayer):
                 layer.W = parameter['W']
                 layer.b = parameter['b']
